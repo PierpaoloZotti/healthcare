@@ -23,7 +23,7 @@ export const createAppointment = async (
     );
     return parseStringify(newAppointment);
   } catch (error) {
-    console.log('createAppointment error:', error);
+    console.error('createAppointment error:', error);
   }
 };
 
@@ -78,10 +78,10 @@ export const getRecentAppointmentsList = async () => {
       ...counts,
       documents: appointments.documents,
     };
-    revalidatePath('/admin');
+
     return parseStringify(data);
   } catch (error: any) {
-    console.log('getRecentAppointmentsList error:', error);
+    console.error('getRecentAppointmentsList error:', error);
   }
 };
 
@@ -118,7 +118,7 @@ export const updateAppointment = async ({
     revalidatePath('/admin');
     return parseStringify(updatedAppointment);
   } catch (error: any) {
-    console.log('updateAppointment error:', error);
+    console.error('updateAppointment error:', error);
   }
 };
 
@@ -131,6 +131,6 @@ export const sendSMSNotificationn = async (userId: string, content: string) => {
       [userId],
     );
   } catch (error: any) {
-    console.log('sendSMSNotification error:', error);
+    console.error('sendSMSNotification error:', error);
   }
 };
